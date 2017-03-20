@@ -33,10 +33,10 @@ namespace FRI3NDZ.MakeAndNails.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
-
             services.AddMvc();
+            services.AddSingleton<IConfiguration>((serviceProvider) => this.Configuration);
+            ServiceConfiguration.ConfigureServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
