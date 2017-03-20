@@ -15,7 +15,7 @@
     },
     "NUnit": "3.6.1",
     "dotnet-test-nunit": "3.4.0-beta-3",
-    "FRI3NDZ.MakeAndNails.Migrations": "1.0.0-*"
+    "NUnitLite": "3.6.1"
   },
 
   "testRunner": "nunit",
