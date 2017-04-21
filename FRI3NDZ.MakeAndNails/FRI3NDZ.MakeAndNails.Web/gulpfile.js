@@ -6,6 +6,7 @@ const gulpIf = require('gulp-if');
 const del = require('del');
 const newer = require('gulp-newer');
 const sass = require('gulp-sass');
+const tslint = require('gulp-tslint');
 var merge = require('merge-stream');
 var rename = require('gulp-rename');
 
@@ -33,6 +34,14 @@ paths.dest.js = paths.dest.scripts + "/app";
 paths.dest.lib = paths.dest.scripts + "/lib";
 paths.dest.styles = paths.dest.root + "/Styles";
 paths.dest.images = paths.dest.root + "/Images";
+
+// Линт скриптов
+gulp.task('tslint', function () {
+	return gulp.src(paths.src.js + "/**/*.ts")
+		.pipe(gulpIf(isDevelopment, debug({ title: 'lint ts file:' })))
+		.pipe(tslint())
+		.pipe(tslint.report());
+});
 
 // Билд
 gulp.task('ts:compile:copy', function () {
@@ -145,4 +154,4 @@ gulp.task('assets:watch', function () {
 });
 
 // Почистить и построить все, кроме библиотек + следить за всеми изменениями, кроме библиотек
-gulp.task('dev', gulp.series('assets:build', 'assets:watch'))
+gulp.task('dev', gulp.series('assets:build', 'assets:watch'));
