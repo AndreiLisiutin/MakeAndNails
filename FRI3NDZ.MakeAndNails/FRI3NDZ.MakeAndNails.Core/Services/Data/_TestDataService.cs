@@ -32,11 +32,11 @@ namespace FRI3NDZ.MakeAndNails.Core.Services.Data
         /// Получить список тестовых сущностей.
         /// </summary>
         /// <returns></returns>
-        public List<_TestEntity> GetTestEntities()
+        public List<_TestEntityBase> GetTestEntities()
         {
             using (var unitOfWork = _unitOfWorkFactory.Create(this._configuration))
             {
-                return unitOfWork._TestEntityRepository.GetAll();
+                return unitOfWork._TestEntityRepository.GetAllBase();
             }
         }
 

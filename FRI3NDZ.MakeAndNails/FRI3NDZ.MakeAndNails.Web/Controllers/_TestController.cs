@@ -14,12 +14,19 @@ namespace FRI3NDZ.MakeAndNails.Web.Controllers
     [Route("api/_test")]
     public class _TestController : Controller
     {
+		/// <summary>
+		/// Конструктор тестового контроллера.
+		/// </summary>
+		/// <param name="_testDataService">Сервис данных для тестовой сущности.</param>
         public _TestController(I_TestDataService _testDataService)
         {
             this._TestDataService = _testDataService;
         }
 
-        public I_TestDataService _TestDataService { get; set; }
+		/// <summary>
+		/// Сервис данных для тестовой сущности.
+		/// </summary>
+		public I_TestDataService _TestDataService { get; set; }
 
         /// <summary>
         /// Получить список тестовых сущностей.
@@ -27,7 +34,7 @@ namespace FRI3NDZ.MakeAndNails.Web.Controllers
         /// <returns>Список тестовых сущностей.</returns>
         [HttpGet()]
         [Route("all")]
-        public List<_TestEntity> GetTestEntities()
+        public List<_TestEntityBase> GetTestEntities()
         {
             return this._TestDataService.GetTestEntities();
         }

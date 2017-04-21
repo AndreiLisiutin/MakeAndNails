@@ -15,6 +15,6 @@ namespace FRI3NDZ.MakeAndNails.Core.Interfaces.Services.Data
         /// Получить список тестовых сущностей.
         /// </summary>
         /// <returns></returns>
-        List<_TestEntity> GetTestEntities();
+        List<_TestEntityBase> GetTestEntities();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using FRI3NDZ.MakeAndNails.Core.Interfaces.Data;
+using FRI3NDZ.MakeAndNails.Core.Interfaces.Data.Repositories;
 using FRI3NDZ.MakeAndNails.Data.Repositories;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
@@ -21,17 +22,22 @@ namespace FRI3NDZ.MakeAndNails.Data.UnitOfWork
         private const string _CONNECTION_STRING_NAME = "Data:MakeAndNailsDbContext:ConnectionString";
         private Lazy<DataContext> _dataContext;
 
-        /// <summary>
-        /// Репозиторий тестовых сущностей.
-        /// </summary>
-        public I_TestEntityRepository _TestEntityRepository => new _TestEntityRepository(this._dataContext.Value);
+		/// <summary>
+		/// Репозиторий тестовых сущностей.
+		/// </summary>
+		public I_TestEntityRepository _TestEntityRepository => new _TestEntityRepository(this._dataContext.Value);
 
-        /// <summary>
-        /// Конструктор единицы работы.
-        /// </summary>
-        /// <param name="configuration">Конфигурация запускаемого проекта. 
-        /// Должен быть заполнен узел для строки подключения к базе данных (<see cref="_CONNECTION_STRING_NAME"/>).</param>
-        public UnitOfWork(IConfiguration configuration)
+		/// <summary>
+		/// Репозиторий пользователей.
+		/// </summary>
+		public IUserRepository UserRepository => new UserRepository(this._dataContext.Value);
+		
+		/// <summary>
+		/// Конструктор единицы работы.
+		/// </summary>
+		/// <param name="configuration">Конфигурация запускаемого проекта. 
+		/// Должен быть заполнен узел для строки подключения к базе данных (<see cref="_CONNECTION_STRING_NAME"/>).</param>
+		public UnitOfWork(IConfiguration configuration)
         {
             this._dataContext = new Lazy<DataContext>(() => this._CreateDataContext(configuration), true);
         }

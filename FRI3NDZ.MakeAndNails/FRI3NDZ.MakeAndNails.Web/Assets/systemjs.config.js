@@ -1,19 +1,15 @@
-/**
- * System configuration for Angular samples
- * Adjust as necessary for your application needs.
- */
 (function (global) {
-    System.config({
+	System.config({
+		baseURL: './Scripts/app',
         paths: {
-            // paths serve as alias
-            'npm:': 'Scripts/lib/'
+        	'npm:': './Scripts/lib/',
         },
-        // map tells the System loader where to look for things
-        map: {
-            // our app is within the app folder
-            app: './Scripts/app',
 
-            // angular bundles
+        map: {
+			//путь к приложению
+        	'Scripts/app': './Scripts/app/',
+
+			//подключаемые в typescript сборки
             '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
             '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
             '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
@@ -23,14 +19,15 @@
             '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
             '@angular/router/upgrade': 'npm:@angular/router/bundles/router-upgrade.umd.js',
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
-
-            // other libraries
+            'angular2-jwt': 'npm:angular2-jwt/angular2-jwt.js',
+            'ng2-validation': 'npm:ng2-validation/bundles/ng2-validation.umd.js',
+            'libphonenumber-js': 'npm:libphonenumber-js/bundle/libphonenumber-js.min.js',
             'rxjs': 'npm:rxjs',
             'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
         },
-        // packages tells the System loader how to load when no filename and/or no extension
+
         packages: {
-            app: {
+        	'Scripts/app': {
                 main: './main.js',
                 defaultExtension: 'js'
             },

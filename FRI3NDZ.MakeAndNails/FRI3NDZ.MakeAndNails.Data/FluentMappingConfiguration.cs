@@ -20,7 +20,9 @@ namespace FRI3NDZ.MakeAndNails.Data
             {
                 config.AddMap(new _TestEntityMap());
                 config.AddMap(new _TestEntityBaseMap());
-                config.ForDommel();
+                config.AddMap(new UserBaseMap());
+                config.AddMap(new UserMap());
+				config.ForDommel();
             });
         }
     }

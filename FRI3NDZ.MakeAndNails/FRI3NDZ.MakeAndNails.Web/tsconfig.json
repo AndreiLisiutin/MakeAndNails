@@ -1,22 +1,23 @@
 {
-  "compilerOptions": {
-    "noImplicitAny": true,
-    "noEmitOnError": true,
-    "removeComments": false,
-    "sourceMap": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": [ "es2015", "dom" ],
-    "typeRoots": [
-      "node_modules/@types/"
-    ],
-    "target": "es5"
-  },
-  "compileOnSave": true,
-  "exclude": [
-    "node_modules",
-    "wwwroot"
-  ]
+	"compilerOptions": {
+		"baseUrl": "./Assets/Scripts/app/",
+		"noImplicitAny": true,
+		"noEmitOnError": true,
+		"removeComments": false,
+		"sourceMap": true,
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"lib": [ "es2015", "dom" ],
+		"typeRoots": [
+			"node_modules/@types/"
+		],
+		"target": "es5"
+	},
+	"compileOnSave": false,
+	"exclude": [
+		"node_modules",
+		"wwwroot"
+	]
 }

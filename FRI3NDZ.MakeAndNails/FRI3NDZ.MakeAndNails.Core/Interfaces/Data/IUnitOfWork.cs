@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FRI3NDZ.MakeAndNails.Core.Interfaces.Data.Repositories;
+using System;
 
 namespace FRI3NDZ.MakeAndNails.Core.Interfaces.Data
 {
@@ -6,16 +7,21 @@ namespace FRI3NDZ.MakeAndNails.Core.Interfaces.Data
     /// Единица работы (Паттерн Unit of Work).
     /// </summary>
     public interface IUnitOfWork : IDisposable
-    {
-        /// <summary>
-        /// Репозиторий тестовых сущностей.
-        /// </summary>
-        I_TestEntityRepository _TestEntityRepository { get; }
+	{
+		/// <summary>
+		/// Репозиторий тестовых сущностей.
+		/// </summary>
+		I_TestEntityRepository _TestEntityRepository { get; }
 
-        /// <summary>
-        /// Открыть транзакцию.
-        /// </summary>
-        void BeginTransaction();
+		/// <summary>
+		/// Репозиторий пользователей.
+		/// </summary>
+		IUserRepository UserRepository { get; }
+
+		/// <summary>
+		/// Открыть транзакцию.
+		/// </summary>
+		void BeginTransaction();
 
         /// <summary>
         /// Подтвердить транзакцию, если она открыта.

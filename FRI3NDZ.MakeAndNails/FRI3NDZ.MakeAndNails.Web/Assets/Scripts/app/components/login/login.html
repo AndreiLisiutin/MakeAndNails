@@ -1,0 +1,21 @@
+﻿<div class="container">
+	<h1>Логинка</h1>
+	<form novalidate #loginForm="ngForm" *ngIf="!isAuthenticated()">
+		<div class="form-group">
+			<label>Логин</label>
+			<input class="form-control" id="login" name="login" [(ngModel)]="userLoginModel.login" #login="ngModel" required />
+			<validation-messages [control]="login"></validation-messages>
+		</div>
+		<div class="form-group">
+			<label>Пароль</label>
+			<input class="form-control" id="password" name="password" [(ngModel)]="userLoginModel.password" #password="ngModel" required />
+			<validation-messages [control]="password"></validation-messages>
+		</div>
+
+		<div class="form-group">
+			<button [disabled]="loginForm.invalid" (click)="login()">Войти</button>
+		</div>
+	</form>
+	<button *ngIf="isAuthenticated()" class="btn btn-default" (click)="checkLogin()">Проверить</button>
+	<button *ngIf="isAuthenticated()" class="btn btn-default" (click)="logout()">Выйти</button>
+</div>
