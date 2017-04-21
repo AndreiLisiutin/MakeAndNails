@@ -13,5 +13,5 @@ import { AuthHttp } from 'angular2-jwt';
 	templateUrl: 'root.html',
 	styles: ['.is-active {color: cornflowerblue;}']
 })
-export class RootComponent implements OnInit {
+export class RootComponent {
 }
